@@ -100,6 +100,7 @@ npm run start
 - Spinner animations give users visual feedback during loading operations
 
 # 📸 Screenshots
+![Screenshot 2025-04-30 at 12 55 44 AM](https://github.com/user-attachments/assets/6f647fbf-4c85-489d-83bc-1f4eb7fb5f32)
 
 
 📃 License
