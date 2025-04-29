@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧳 Luggage Tracker App
 
-## Getting Started
+A sleek and simple luggage tracker built with **Next.js**, **React Hooks**, and **Tailwind CSS**. This app allows users to add, view, and delete luggage items with local persistence and smooth animations for a great user experience.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- ✅ Add a luggage item (name + destination)
+- 📋 List all luggage items
+- ❌ Delete luggage items
+- 💾 Persistent storage using browser localStorage
+- ⚡ Smooth loading spinner animations for add/delete
+- 🧩 Modular and scalable folder structure
+- 🎨 Stylish yet minimal UI with Tailwind CSS
+- 🚀 Built with functional components and React Hooks
+- 🌐 Page-based routing with Next.js
+
+---
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── luggage/
+│   │   │       ├── route.ts              # POST/GET handler for luggage
+│   │   │       └── [id]/
+│   │   │           └── route.ts          # DELETE handler for specific luggage item
+│   │   ├── page.tsx                      # Main page (Home)
+│   │   ├── layout.tsx                    # Global layout
+│   │   └── globals.css                   # Global styles (Tailwind import)
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── Button.tsx                # Reusable styled button
+│   │   │   ├── LoadingSpinner.tsx        # Simple loading spinner
+│   │   │   └── Card.tsx                  # Card UI wrapper
+│   │   ├── LuggageForm.tsx               # Form to add luggage item
+│   │   ├── LuggageList.tsx               # Displays list of luggage items
+│   │   └── LuggageItem.tsx               # Single item with delete functionality
+│   ├── lib/
+│   │   └── db.ts                         # LocalStorage utility functions
+│   ├── hooks/
+│   │   └── useLuggage.ts                 # Custom hook to manage luggage state
+│   └── types/
+│       └── index.ts                      # TypeScript types (e.g., LuggageItem)
+├── public/
+│   └── favicon.ico                       # App icon
+├── package.json                          # Project metadata and scripts
+├── tsconfig.json                         # TypeScript config
+├── tailwind.config.js                    # Tailwind customization
+├── postcss.config.js                     # PostCSS config for Tailwind
+└── next.config.js                        # Next.js config
+```
+# 🚀 Getting Started
+
+## Clone the repo 
+```
+git clone https://github.com/yourusername/luggage-tracker.git
+cd luggage-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Install dependencies
+```
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Run the development server
+```
+npm run dev
 
-## Learn More
+```
+Open http://localhost:3000 in your browser to see the app in action
 
-To learn more about Next.js, take a look at the following resources:
+# 📦 Build for Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run build
+npm run start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+- Next.js – for server-side rendering and routing
+- React Hooks – for state and lifecycle management
+- Tailwind CSS – for styling
+- localStorage API – for client-side persistence
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 🧠 Architecture Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- App state is managed via a custom React hook (useLuggage)
+
+- Data is persisted using localStorage via helper functions in /utils/storage.ts
+
+- UI is broken into atomic reusable components
+
+- Spinner animations give users visual feedback during loading operations
+
+# 📸 Screenshots
+
+
+📃 License
+
+MIT © 2025 Clive T Matsinde

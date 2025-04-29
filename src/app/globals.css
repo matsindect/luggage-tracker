@@ -2,7 +2,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #AFDDFF;
+  --h2text: #FF9149;
+  --h1text: #FFECDB;
+  --h3text: #AFDDFF;
 }
 
 @theme inline {
@@ -14,9 +17,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #60B5FF;
+    --foreground: #AFDDFF;
   }
+}
+/* Add fade in animation for new items */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 body {
@@ -24,3 +36,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+h1 {
+  margin: 0;
+  padding: 0;
+  color: var(--h1text);
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  color: var(--h2text);
+}
+h3 {
+  margin: 0;
+  padding: 0;
+  color: var(--h3text);
+}
+.button-color {
+  background: var(--background);
+}
+
