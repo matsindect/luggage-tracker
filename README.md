@@ -58,7 +58,7 @@ A sleek and simple luggage tracker built with **Next.js**, **React Hooks**, and 
 
 ## Clone the repo 
 ```
-git clone https://github.com/yourusername/luggage-tracker.git
+https://github.com/matsindect/luggage-tracker.git
 cd luggage-tracker
 ```
 
