@@ -23,10 +23,12 @@ interface LuggageListProps {
  * - Otherwise, a list of `LuggageItem` components is rendered.
  */
 export function LuggageList({ items, onDelete, loading }: LuggageListProps) {
+  // If the data is still loading, display a loading spinner
   if (loading) {
     return <LoadingSpinner />;
   }
   
+  // If there are no luggage items, display a message indicating the list is empty
   if (items.length === 0) {
     return (
       <div className="text-center py-8 text-gray-500">

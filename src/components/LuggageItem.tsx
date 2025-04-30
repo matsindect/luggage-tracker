@@ -22,7 +22,6 @@ interface LuggageItemProps {
  * @returns {JSX.Element} A styled card displaying luggage item details with a delete button.
  */
 export function LuggageItem({ item, onDelete, loading }: LuggageItemProps) {
-  const formattedDate = new Date(item.createdAt).toLocaleDateString();
   
   return (
     <div className="border rounded-lg p-4 bg-white shadow-sm hover:shadow transition-shadow mt-4">

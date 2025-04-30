@@ -10,9 +10,15 @@ export const getAllItems = (): LuggageItem[] => {
   
   try {
     const items = localStorage.getItem(DB_KEY);
-    return items ? JSON.parse(items) : [];
+    if (!items) return [];
+    const parsed = JSON.parse(items);
+    return parsed.map((item: LuggageItem) => ({
+      ...item,
+      createdAt: new Date(item.createdAt), // convert string to Date
+    }));
+    
   } catch (error) {
-    console.error("Failed to parse luggage items:", error);
+    console.log("Failed to parse luggage items:", error);
     return [];
   }
 };
@@ -22,6 +28,13 @@ export const getAllItems = (): LuggageItem[] => {
  */
 export const addItem = (item: Omit<LuggageItem, "id" | "createdAt">): LuggageItem => {
   const items = getAllItems();
+  if (!items) {
+    return {
+      ...item,
+      id: crypto.randomUUID(),
+      createdAt: new Date(),
+    }; // No items to add to
+  }
   const newItem: LuggageItem = {
     ...item,
     id: crypto.randomUUID(),
@@ -39,6 +52,8 @@ export const addItem = (item: Omit<LuggageItem, "id" | "createdAt">): LuggageIte
  */
 export const deleteItem = (id: string): boolean => {
   const items = getAllItems();
+  if (!items) return false; // No items to delete
+
   const filteredItems = items.filter(item => item.id !== id);
   
   if (filteredItems.length === items.length) {
